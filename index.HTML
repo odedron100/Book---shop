@@ -10,6 +10,10 @@
 </head>
 <body onload="init()">
   <h1 class="title" data-trans="title"> Book Shop </h1>
+   <select onchange="onSetLang(this.value)">
+        <option value="en">English</option>
+        <option value="he">עברית</option>
+    </select>
   <div class="table-container">
     <div class="header-row row">
       <span data-trans="book-list"> Books List </span>

@@ -69,3 +69,9 @@ function onClickRate(btn) {
     dropRateValue();
   }
 }
+
+function onSetLang(language) {
+  setLang(language);
+  doTrans();
+  renderBooks();
+}
