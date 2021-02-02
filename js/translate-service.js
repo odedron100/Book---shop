@@ -32,5 +32,22 @@ function setLang(lang) {
 }
 
 function doTrans() {
+  var els = document.querySelectorAll('[data-trans]');
+  els.forEach(function (el) {
+    var transKey = el.dataset.trans
+    el.innerText = transKey;
+    var txt = getTrans(transKey);
+    el.innerText = txt;
+  })
+}
 
+
+function getTrans(transKey) {
+  var keyTrans = gTrans[transKey];
+  if (!keyTrans) return 'UNKNOWN';
+  var txt = keyTrans[gCurrLang];
+
+  // if not found return en
+  if (!txt) txt = keyTrans['en'];
+  return txt;
 }

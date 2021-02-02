@@ -5,15 +5,18 @@ function init() {
 
 function renderBooks() {
   var books = gBooks;
+  var readButtontxt = (gCurrLang === 'en') ? 'Read' : 'קריאה';
+  var updateButtontxt = (gCurrLang === 'en') ? 'Update' : 'עדכון';
+  var deleteButtontxt = (gCurrLang === 'en') ? 'Delete' : 'מחיקה';
   var strHtmls = books.map(function (book) {
     return `
         <div class="book-row row">
               <div id="title" class="cell book-title-cell" onclick="onSetSort(this)">${book.title} (${book.id})</div>
               <div id="price" class="cell price-cell" onclick="onSetSort(this)">$${book.price}</div>
               <div class="actions">
-                <div class="cell"><div class="button read-button" data-trans="read" onclick="onReadBook('${book.id}')">Read</div></div>
-                <div class="cell"><div class="button update-button" data-trans="update" onclick="onUpdateBook('${book.id}')">Update</div></div>
-                <div class="cell"><div class="button delete-button" data-trans="delete" onclick="onDeleteBook('${book.id}')">Delete</div></div>
+                <div class="cell"><div class="button read-button" data-trans="read" onclick="onReadBook('${book.id}')">${readButtontxt}</div></div>
+                <div class="cell"><div class="button update-button" data-trans="update" onclick="onUpdateBook('${book.id}')">${updateButtontxt}</div></div>
+                <div class="cell"><div class="button delete-button" data-trans="delete" onclick="onDeleteBook('${book.id}')">${deleteButtontxt}</div></div>
               </div>
         </div>`;
   })
@@ -41,6 +44,7 @@ function onUpdateBook(bookId) {
 }
 
 function onReadBook(bookId) {
+  var ratingMessage = (gCurrLang === 'en') ? 'rating :' : ': ציון';
   var book = getBookById(bookId);
   gCurrReadBook = bookId;
   var currRate = loadFromStorage(gCurrReadBook) || 0;
@@ -48,7 +52,7 @@ function onReadBook(bookId) {
   // elModal.querySelector('img').src = ;
   elModal.querySelector('h2').innerHTML = book.title;
   var elRateCount = document.querySelector('.rate-count');
-  elRateCount.innerHTML = ` rating : ${currRate} ⭐️`;
+  elRateCount.innerHTML = ` ${ratingMessage} ${currRate} ⭐️`;
   elModal.querySelector('h4').innerHTML = `price : ${book.price} $`;
   elModal.querySelector('p').innerHTML = book.summery;
   elModal.hidden = false;
