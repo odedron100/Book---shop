@@ -4,8 +4,22 @@ var gBooks;
 var gSortBy = 'title';
 var gCurrReadBook = null
 var gRate = 0;
+const PAGE_SIZE = 5;
+var gPageIdx = 0;
 
 _createBooks();
+
+function getbooks() {
+  var startIdx = gPageIdx * PAGE_SIZE;
+  return gBooks.slice(startIdx, startIdx + PAGE_SIZE)
+}
+
+function nextPage() {
+  gPageIdx++;
+  if (gPageIdx * PAGE_SIZE >= gBooks.length) {
+    gPageIdx = 0;
+  }
+}
 
 function _createBook(name, price) {
   var book = {
