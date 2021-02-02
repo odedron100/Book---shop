@@ -4,6 +4,7 @@ var gBooks;
 var gSortBy = 'title';
 var gCurrReadBook = null
 var gRate = 0;
+var gCurrLang = 'en';
 
 _createBooks();
 

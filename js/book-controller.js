@@ -11,9 +11,9 @@ function renderBooks() {
               <div id="title" class="cell book-title-cell" onclick="onSetSort(this)">${book.title} (${book.id})</div>
               <div id="price" class="cell price-cell" onclick="onSetSort(this)">$${book.price}</div>
               <div class="actions">
-                <div class="cell"><div class="button read-button" onclick="onReadBook('${book.id}')">Read</div></div>
-                <div class="cell"><div class="button update-button" onclick="onUpdateBook('${book.id}')">Update</div></div>
-                <div class="cell"><div class="button delete-button" onclick="onDeleteBook('${book.id}')">Delete</div></div>
+                <div class="cell"><div class="button read-button" data-trans="read" onclick="onReadBook('${book.id}')">Read</div></div>
+                <div class="cell"><div class="button update-button" data-trans="update" onclick="onUpdateBook('${book.id}')">Update</div></div>
+                <div class="cell"><div class="button delete-button" data-trans="delete" onclick="onDeleteBook('${book.id}')">Delete</div></div>
               </div>
         </div>`;
   })
