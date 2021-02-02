@@ -10,7 +10,7 @@
 </head>
 <body onload="init()">
   <h1 class="title" data-trans="title"> Book Shop </h1>
-   <select onchange="onSetLang(this.value)">
+   <select class="lang-change" onchange="onSetLang(this.value)">
         <option value="en">English</option>
         <option value="he">עברית</option>
     </select>
@@ -22,6 +22,7 @@
     <div class="table-body">
 
     </div>
+    <button class="next-page" data-trans="next-page" onclick="onNextPage()">Next Page</button>
   </div>
 
   <div class="modal-overlay">
