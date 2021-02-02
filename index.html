@@ -9,15 +9,20 @@
   <title>Book - shop</title>
 </head>
 <body onload="init()">
-  <h1 class="title"> Book Shop </h1>
+  <h1 class="title" data-trans="title"> Book Shop </h1>
+   <select class="lang-change" onchange="onSetLang(this.value)">
+        <option value="en">English</option>
+        <option value="he">עברית</option>
+    </select>
   <div class="table-container">
     <div class="header-row row">
-      Books List
+      <span data-trans="book-list"> Books List </span>
       <div class="create-new-book" onclick="onAddBook()">+</div>
     </div>
     <div class="table-body">
 
     </div>
+    <button class="next-page" data-trans="next-page" onclick="onNextPage()">Next Page</button>
   </div>
 
   <div class="modal-overlay">
@@ -25,7 +30,7 @@
       <!-- <img src="" -->
       <div class="close-modal" onclick="closeModal()">❌</div>
       <h2></h2>
-      <div class="rate-count">rating:</div>
+      <div class="rate-count" data-trans="rating">rating:</div>
       <button class="minus-button rate-button" value="-" onclick="onClickRate(this)"> - </button>
       <button class="plus-button rate-button" value="+" onclick="onClickRate(this)"> + </button>
       <p class="summery"></p>
@@ -35,6 +40,7 @@
     </div>
   </div>
   <script src="js/util-service.js"></script>
+  <script src="js/translate-service.js"></script>
   <script src="js/storage-service.js"></script>
   <script src="js/book-service.js"></script>
   <script src="js/book-controller.js"></script>
